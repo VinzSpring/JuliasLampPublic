@@ -162,14 +162,11 @@ class LedGlass:
             self.leds[i] = hsv_to_rgb(jump * i, .1, .1)
         self.leds.write()
 
-args = sys.argv
-token = args[1]
-
 NUM_LEDS = 52
 LED_PIN = machine.Pin(13)
 
 pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS)
-bot = TelegramBot(token)
+bot = TelegramBot(bot_token)
 
 lamp = LedGlass(bot, pixels)
 lamp.start()
