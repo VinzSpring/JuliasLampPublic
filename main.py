@@ -240,6 +240,7 @@ class LedGlass:
 
         self.last_color = (150, 100, 100)
 
+        self.bot.send(self.users[0], "boot complete")
         # self.buttons = [
         #    Button(machine.TouchPad(machine.Pin(12)), self.handle_touch)
         # ]
