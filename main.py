@@ -267,6 +267,7 @@ class LedGlass:
           text = text.replace("/msg", "")
           for user in reversed(self.users):
             self.bot.send(user, text)
+            time.sleep(1)
         elif ',' in text:
             rgb = text.split(',')
             try:
