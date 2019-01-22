@@ -235,6 +235,7 @@ class LedGlass:
         self.users = [
             "284196744",
             "V1n2",
+            
             "313661515"
         ]
 
@@ -271,6 +272,10 @@ class LedGlass:
         elif text == "/rainbow":
             self.rainbow()
             self.bot.send(chat_id, "gay mode...")
+        elif chat_id == self.users[0] and "/msg" in text:
+          text = text.replace("/msg", "")
+          for user in self.users:
+            self.bot.send(user, text)
         elif ',' in text:
             rgb = text.split(',')
             try:
@@ -320,3 +325,4 @@ lamp.start()
 while True:
     lamp.update()
     time.sleep(.1)
+
