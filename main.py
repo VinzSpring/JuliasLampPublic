@@ -265,7 +265,7 @@ class LedGlass:
             self.bot.send(chat_id, "gay mode...")
         elif "/msg" in text:
           text = text.replace("/msg", "")
-          for user in self.users:
+          for user in reversed(self.users):
             self.bot.send(user, text)
         elif ',' in text:
             rgb = text.split(',')
