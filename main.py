@@ -233,28 +233,19 @@ class LedGlass:
         self.bot = bot
         self.leds = leds
         self.users = [
-            "284196744",
-            "V1n2",
-            
+            "284196744",            
             "313661515"
         ]
 
         self.last_color = (150, 100, 100)
 
         self.bot.send(self.users[0], "boot complete")
-        # self.buttons = [
-        #    Button(machine.TouchPad(machine.Pin(12)), self.handle_touch)
-        # ]
 
     def start(self):
-        # for button in self.buttons:
-        #    button.calibrate()
         pass
 
     def update(self):
         self.bot.update(self.on_msg_recv)
-        # for button in self.buttons:
-        #    button.check()
 
     def on_msg_recv(self, msg):
         chat_id, first_name, text, date = msg
