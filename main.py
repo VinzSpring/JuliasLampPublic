@@ -2,7 +2,6 @@ import machine, neopixel
 import time
 import urequests as requests
 import ujson as json
-import sys
 
 
 class TelegramBot(object):
@@ -233,7 +232,7 @@ class LedGlass:
         self.bot = bot
         self.leds = leds
         self.users = [
-            "284196744",            
+            "284196744",
             "313661515"
         ]
 
@@ -264,10 +263,10 @@ class LedGlass:
             self.rainbow()
             self.bot.send(chat_id, "gay mode...")
         elif "/msg" in text:
-          text = text.replace("/msg", "")
-          for user in reversed(self.users):
-            self.bot.send(user, text)
-            time.sleep(1)
+            text = text.replace("/msg", "")
+            for user in reversed(self.users):
+                self.bot.send(user, text)
+                time.sleep(1)
         elif ',' in text:
             rgb = text.split(',')
             try:
@@ -305,16 +304,17 @@ class LedGlass:
         self.leds.write()
 
 
-NUM_LEDS = 52
-LED_PIN = machine.Pin(13)
-
-pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS)
-bot = TelegramBot(bot_token)
-
-lamp = LedGlass(bot, pixels)
-lamp.start()
-
-while True:
-    lamp.update()
-    time.sleep(.1)
-
+print("loaded everything")
+print("bye")
+# NUM_LEDS = 52
+# LED_PIN = machine.Pin(13)
+#
+# pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS)
+# bot = TelegramBot(bot_token)
+#
+# lamp = LedGlass(bot, pixels)
+# lamp.start()
+#
+# while True:
+#     lamp.update()
+#     time.sleep(.1)
