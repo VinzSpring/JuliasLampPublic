@@ -165,17 +165,18 @@ class LedGlass:
         self.leds.write()
 
 print("loaded everything")
+NUM_LEDS = 52
+LED_PIN = machine.Pin(13)
+
+pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS)
+bot = TelegramBot(bot_token)
+
+lamp = LedGlass(bot, pixels)
+lamp.start()
+
+while True:
+    lamp.update()
+    time.sleep(.1)
 print("bye")
-# NUM_LEDS = 52
-# LED_PIN = machine.Pin(13)
-#
-# pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS)
-# bot = TelegramBot(bot_token)
-#
-# lamp = LedGlass(bot, pixels)
-# lamp.start()
-#
-# while True:
-#     lamp.update()
-#     time.sleep(.1)
+
 
