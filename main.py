@@ -52,18 +52,26 @@ class TelegramBot(object):
 
 
 def hsv_to_rgb(h, s, v):
-    if s == 0.0: v *= 255; return (int(v), int(v), int(v))
+    if s == 0.0:
+        v *= 255
+        return int(v), int(v), int(v)
     i = int(h * 6.)  # XXX assume int() truncates!
     f = (h * 6.) - i
     p, q, t = int(255 * (v * (1. - s))), int(255 * (v * (1. - s * f))), int(255 * (v * (1. - s * (1. - f))))
     v *= 255
     i %= 6
-    if i == 0: return (int(v), int(t), int(p))
-    if i == 1: return (int(q), int(v), int(p))
-    if i == 2: return (int(p), int(v), int(t))
-    if i == 3: return (int(p), int(q), int(v))
-    if i == 4: return (int(t), int(p), int(v))
-    if i == 5: return (int(v), int(p), int(q))
+    if i == 0:
+        return int(v), int(t), int(p)
+    if i == 1:
+        return int(q), int(v), int(p)
+    if i == 2:
+        return int(p), int(v), int(t)
+    if i == 3:
+        return int(p), int(q), int(v)
+    if i == 4:
+        return int(t), int(p), int(v)
+    if i == 5:
+        return int(v), int(p), int(q)
 
 
 class Button:
@@ -124,10 +132,10 @@ class LedGlass:
             self.rainbow()
             self.bot.send(chat_id, "gay mode...")
         elif "/msg" in text:
-          text = text.replace("/msg", "")
-          for user in reversed(self.users):
-            self.bot.send(user, text)
-            time.sleep(1)
+            text = text.replace("/msg", "")
+            for user in reversed(self.users):
+                self.bot.send(user, text)
+                time.sleep(1)
         elif ',' in text:
             rgb = text.split(',')
             try:
@@ -164,6 +172,7 @@ class LedGlass:
             self.leds[i] = hsv_to_rgb(jump * i, .1, .1)
         self.leds.write()
 
+
 print("loaded everything")
 NUM_LEDS = 52
 LED_PIN = machine.Pin(13)
@@ -178,5 +187,3 @@ pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS)
 #     lamp.update()
 #     time.sleep(.1)
 # print("bye")
-
-
