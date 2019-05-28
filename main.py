@@ -1,8 +1,8 @@
-import machine, neopixel
+import machine
 import time
 import urequests as requests
 import ujson as json
-
+import neopixel
 
 class TelegramBot(object):
     def __init__(self, token):
@@ -173,9 +173,13 @@ class LedGlass:
         self.leds.write()
 
 
-print("loaded everything")
 NUM_LEDS = 52
 LED_PIN = machine.Pin(13)
+
+print("--------------------------")
+print(bot_token)
+print("--------------------------")
+
 
 pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS)
 bot = TelegramBot(bot_token)
