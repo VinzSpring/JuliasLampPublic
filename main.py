@@ -182,10 +182,16 @@ print("--------------------------")
 
 
 pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS)
-bot = TelegramBot(bot_token)
 
+print("1")
+
+bot = TelegramBot(bot_token)
+print("2")
 lamp = LedGlass(bot, pixels)
+print("3")
 lamp.start()
+
+print("loop")
 
 while True:
     lamp.update()
