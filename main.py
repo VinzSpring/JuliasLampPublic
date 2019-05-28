@@ -107,7 +107,7 @@ class LedGlass:
 
         self.last_color = (150, 100, 100)
         print("2.1")
-        self.bot.send(self.users[0], "boot complete")
+        #self.bot.send(self.users[0], "boot complete")
 
     def start(self):
         pass
